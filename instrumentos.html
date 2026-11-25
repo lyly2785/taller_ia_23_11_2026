@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompts del taller IA - Instrumentos de evaluación CETPRO</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: single-column mobile-first page, scanned via QR on a phone during the live workshop */
+  :root {
+    --bg: #ffffff;
+    --surface: #f4f6fb;
+    --fg: #1a2350;
+    --muted: #5b6584;
+    --accent: #f2660f;
+    --accent-ink: #ffffff;
+    --blue: #1e3aa8;
+    --line: #e2e6f2;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12162b;
+      --surface: #1b2140;
+      --fg: #eef0fa;
+      --muted: #a6adc9;
+      --accent: #ff8a3d;
+      --accent-ink: #1a1200;
+      --blue: #7f9bff;
+      --line: #2b3260;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12162b;
+    --surface: #1b2140;
+    --fg: #eef0fa;
+    --muted: #a6adc9;
+    --accent: #ff8a3d;
+    --accent-ink: #1a1200;
+    --blue: #7f9bff;
+    --line: #2b3260;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Inter", -apple-system, "Segoe UI", sans-serif;
+    padding-inline: 20px;
+    padding-block: max(28px, env(safe-area-inset-top, 0px)) 48px;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; }
+
+  header { margin-bottom: 28px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--blue); font-weight: 700; margin: 0 0 6px;
+  }
+  h1 {
+    font-family: "Poppins", "Inter", sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 6vw, 32px);
+    line-height: 1.15;
+    margin: 0 0 8px;
+    text-wrap: balance;
+    color: var(--fg);
+  }
+  header p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.5; }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin: 18px 0 30px;
+  }
+  .legend span {
+    font-size: 12px; font-weight: 600; color: var(--blue);
+    background: var(--surface); border: 1px solid var(--line);
+    padding: 5px 10px; border-radius: 999px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 22px;
+  }
+  .card h2 {
+    font-family: "Poppins", "Inter", sans-serif;
+    font-size: 18px; margin: 0 0 4px; color: var(--accent);
+  }
+  .card .subt { font-size: 13px; color: var(--muted); margin: 0 0 14px; }
+
+  .prompt {
+    font-family: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+    font-size: 12.5px; line-height: 1.6;
+    white-space: pre-wrap;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px;
+    margin: 0 0 12px;
+    overflow-x: auto;
+    min-width: 0;
+  }
+  .prompt b { color: var(--blue); }
+
+  button.copy {
+    font: inherit; font-size: 13px; font-weight: 600;
+    color: var(--accent-ink); background: var(--accent);
+    border: none; border-radius: 999px;
+    padding: 9px 16px; cursor: pointer;
+  }
+  button.copy:active { opacity: 0.85; }
+  button.copy[data-copied="1"] { background: var(--blue); }
+
+  .lbl { font-size: 13px; font-weight: 600; color: var(--blue); margin: 14px 0 6px; }
+  .steps { margin: 0 0 4px; padding-left: 20px; font-size: 14px; line-height: 1.6; color: var(--fg); }
+  footer {
+    margin-top: 8px; padding-top: 18px; border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--muted); line-height: 1.6;
+  }
+  footer strong { color: var(--fg); }
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 12px}
+  .tools a{display:block;text-align:center;font-weight:600;font-size:14px;color:var(--accent-ink);background:var(--blue);border-radius:12px;padding:12px 8px;text-decoration:none}
+  .note{font-size:13.5px;line-height:1.55;color:var(--fg);margin:0}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Grupo Horizonte Educa Perú &middot; 25/11/2026</p>
+    <h1>Prompts del taller de IA: instrumentos de evaluación</h1>
+    <p>Sesión "Elaboración de instrumentos de evaluación con la IA" &mdash; CETPRO Piloto Femenino de Lima. Copia el prompt, pégalo en la herramienta que elijas, adjunta tu hoja de información o ficha de actividad y completa los datos entre corchetes. No ingreses datos personales de estudiantes.</p>
+  </header>
+
+  <div class="legend">
+    <span>R &mdash; Rol</span>
+    <span>I &mdash; Interacción</span>
+    <span>T &mdash; Tarea</span>
+    <span>A &mdash; Adaptabilidad</span>
+  </div>
+
+  <div class="card" id="herramientas">
+    <h2>Elige tu herramienta</h2>
+    <p class="subt">El mismo prompt RITA funciona en las cuatro.</p>
+    <div class="tools">
+      <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a>
+      <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a>
+      <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Copilot</a>
+      <a href="https://chat.deepseek.com/" target="_blank" rel="noopener">DeepSeek</a>
+    </div>
+    <p class="note">Si la herramienta no permite adjuntar archivos, copia y pega el texto de la hoja de información dentro del prompt. Las respuestas varían entre herramientas: compáralas y valida siempre el resultado antes de aplicarlo.</p>
+  </div>
+
+  <div class="card" id="ej1">
+    <h2>Ejercicio 1 &middot; Lista de cotejo</h2>
+    <p class="subt">ChatGPT, Gemini, Copilot o DeepSeek. Adjunta la Hoja de Información N°04 (o la de tu módulo).</p>
+    <pre class="prompt" id="a0"><b>Rol:</b> Actúa como especialista en evaluación de educación técnico-productiva (CETPRO), módulo de Tejeduría.
+
+<b>Interacción:</b> Adjunto la Hoja de Información N°04 (unidades de medida, cálculo de materiales, presupuesto de producción y precio de venta). Capacidad de la unidad didáctica: [pegar]. Indicador de logro: [pegar]. Pregúntame antes de responder si necesitas algún dato adicional.
+
+<b>Tarea:</b> Elabora una lista de cotejo con indicadores observables agrupados por dimensiones (una por apartado de la hoja, más una de actitudes en el taller). Columnas: N.°, indicador, Logrado, No logrado, retroalimentación. Incluye la escala de resultado según el número de indicadores logrados.
+
+<b>Adaptabilidad:</b> Un solo desempeño observable por indicador, redactado en tercera persona. No incluyas contenidos que no estén en la hoja. Si el resultado se convierte a nota: Escala vigesimal con nota mínima aprobatoria 13 (RVM N.° 188-2020-MINEDU, Lineamientos Académicos Generales para CETPRO). Presenta la tabla lista para copiar a Word y ajústala según mi retroalimentación.</pre>
+    <button class="copy" data-target="a0">Copiar prompt</button>
+  </div>
+  <div class="card" id="ej2">
+    <h2>Ejercicio 2 &middot; Parte A: Rúbrica de planchado y embolsado</h2>
+    <p class="subt">ChatGPT, Gemini, Copilot o DeepSeek. Adjunta o pega la Ficha de Actividad N°16 (o la de tu módulo).</p>
+    <pre class="prompt" id="b0"><b>Rol:</b> Actúa como especialista en evaluación de educación técnico-productiva (CETPRO), módulo Técnicas de procesos de acabados en prendas de vestir.
+
+<b>Interacción:</b> Adjunto la Ficha de Actividad N°16. Unidad didáctica: Técnicas de planchado y embolsado de prendas de vestir. Capacidad: UC2 C1 Realizar el control de calidad en las diversas prendas confeccionadas basándose en los requerimientos establecidos en la ficha técnica. Indicador de logro: C2 I1 Realiza la eliminación de hilos sobrantes de las prendas de vestir según especificaciones técnicas. Pregúntame antes de responder si necesitas algún dato adicional.
+
+<b>Tarea:</b> Elabora una rúbrica analítica con 4 criterios técnicos y 1 criterio actitudinal, 4 niveles de desempeño (4, 3, 2 y 1 puntos por criterio) y puntaje total sobre 20. Agrega un espacio de retroalimentación.
+
+<b>Adaptabilidad:</b> Escala vigesimal con nota mínima aprobatoria 13 (RVM N.° 188-2020-MINEDU, Lineamientos Académicos Generales para CETPRO). Descriptores observables en el taller y graduales entre niveles. No uses los niveles AD, A, B, C de Educación Básica. Presenta la rúbrica en tabla lista para Word.</pre>
+    <button class="copy" data-target="b0">Copiar prompt</button>
+  </div>
+  <div class="card" id="ej2b">
+    <h2>Ejercicio 2 &middot; Parte B: ajustar con criterio docente</h2>
+    <p class="subt">Escríbelo en el mismo chat, después de la Parte A.</p>
+    <pre class="prompt" id="b1">Ajusta la rúbrica: mis estudiantes son adultas con experiencia previa en confección; la actividad dura 270 minutos en el Taller N°09; incluye el uso seguro de tijera de precisión y cortahilos; los rangos de calificación deben considerar 13 como nota mínima aprobatoria. Entrega solo la rúbrica final.</pre>
+    <button class="copy" data-target="b1">Copiar prompt</button>
+    <p class="lbl">Luego, a mano</p>
+    <ol class="steps">
+      <li>Haz al menos 2 cambios que solo tú conoces de tu grupo (ej. tolerancias de la ficha técnica, errores frecuentes).</li>
+      <li>Compara con tu rúbrica original: ¿qué mejoró?, ¿qué le faltó a la IA?, ¿la suma da 20 y el 13 es aprobatorio?</li>
+    </ol>
+  </div>
+  <div class="card" id="ej3">
+    <h2>Ejercicio 3 &middot; Registro de evaluación en Excel</h2>
+    <p class="subt">ChatGPT, Gemini, Copilot o DeepSeek. Usa datos ficticios, sin nombres reales.</p>
+    <pre class="prompt" id="c0"><b>Rol:</b> Actúa como asistente experto en hojas de cálculo (Excel o Google Sheets) para registros de evaluación docente.
+
+<b>Interacción:</b> Mi registro tiene, por estudiante, las columnas C1, C2, C3, C4 y Actitudinal (0 a 20) en las columnas C a G, desde la fila 5. Algunas filas están vacías y aparece el error #DIV/0!. Uso Excel en español. Pregúntame antes de responder si necesitas algún dato adicional.
+
+<b>Tarea:</b> Dame las fórmulas para: 1) el promedio por estudiante redondeado a entero; 2) la condición Aprobado (13 a 20) o Desaprobado (0 a 12); 3) el conteo de estudiantes por condición.
+
+<b>Adaptabilidad:</b> Escala vigesimal con nota mínima aprobatoria 13 (RVM N.° 188-2020-MINEDU, Lineamientos Académicos Generales para CETPRO). Usa funciones en español (PROMEDIO, REDONDEAR, SI.ERROR, SI, CONTAR.SI) y explica cada fórmula paso a paso. Las filas vacías deben quedar en blanco, sin error. Ajusta según mi versión de Excel.</pre>
+    <button class="copy" data-target="c0">Copiar prompt</button>
+  </div>
+  <div class="card" id="notebooklm">
+    <h2>Paso 2 &middot; NotebookLM: validar el instrumento con la fuente</h2>
+    <p class="subt">NotebookLM responde citando la fuente cargada, lo que permite verificar cada indicador.</p>
+    <ol class="steps">
+      <li>Crear un notebook nuevo.</li>
+      <li>Subir como fuentes la hoja de información o ficha de actividad y el instrumento generado (Word o PDF).</li>
+      <li>Escribir esta solicitud en el chat del notebook.</li>
+    </ol>
+    <pre class="prompt" id="n0">Con base solo en las fuentes cargadas, revisa cada indicador o criterio del instrumento e indica en una tabla: indicador, ¿tiene sustento en la fuente? (sí/no), cita de la fuente y observación. Señala los indicadores que evalúan contenidos que no están en la fuente.</pre>
+    <button class="copy" data-target="n0">Copiar prompt</button>
+  </div>
+  <div class="card" id="ej4">
+    <h2>Ejercicio 4 &middot; Mejorar un instrumento existente</h2>
+    <p class="subt">ChatGPT, Gemini, Copilot o DeepSeek. Adjunta tu lista de cotejo o rúbrica.</p>
+    <pre class="prompt" id="d0"><b>Rol:</b> Actúa como especialista en evaluación de educación técnico-productiva (CETPRO) y revisor de instrumentos de evaluación.
+
+<b>Interacción:</b> Adjunto mi lista de cotejo o rúbrica, y la capacidad e indicadores de logro de la unidad didáctica. Si falta algún dato, pregúntamelo antes de responder.
+
+<b>Tarea:</b> Revisa el instrumento: coherencia con la capacidad e indicador de logro, indicadores observables, un desempeño por ítem, escala y puntajes que sumen correctamente. Entrega una tabla: ítem, observación, propuesta de mejora.
+
+<b>Adaptabilidad:</b> Escala vigesimal con nota mínima aprobatoria 13 (RVM N.° 188-2020-MINEDU, Lineamientos Académicos Generales para CETPRO). No reescribas todo el instrumento: solo propone cambios justificados. Mantén el formato institucional y ajusta según mi retroalimentación.</pre>
+    <button class="copy" data-target="d0">Copiar prompt</button>
+  </div>
+  <footer>
+    <strong>La IA propone. Tú decides.</strong> Valida cada instrumento frente a tu unidad didáctica y a la RVM N.° 188-2020-MINEDU antes de aplicarlo.
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('button.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pre = document.getElementById(btn.dataset.target);
+      var text = pre.innerText;
+      function marked() {
+        var original = btn.textContent;
+        btn.textContent = 'Copiado';
+        btn.dataset.copied = '1';
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.removeAttribute('data-copied');
+        }, 1800);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(marked, function () {
+          selectFallback(pre);
+        });
+      } else {
+        selectFallback(pre);
+      }
+      function selectFallback(el) {
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        try { if (document.execCommand("copy")) { marked(); } } catch (e) {}
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
